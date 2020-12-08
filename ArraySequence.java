@@ -18,10 +18,14 @@ public class ArraySequence implements IntegerSequence{
 	}
 
 	public int next(){
-		return 1;
+		if (!hasNext()){
+			throw new NoSuchElementException("There is no next element.");		
+		}
+		currentIndex++;
+		return data[currentIndex-1];
 	}
 
 	public boolean hasNext(){
-		return false;
+		return currentIndex < data.length;
 	}
 }
